@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tri Ân Cô Liên - Chúc Mừng Ngày Nhà Giáo Việt Nam 20/11</title>
+    
+    <!-- Google Fonts: Playfair Display, Dancing Script, Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FFFDF9',
+                        pastelPink: '#FCE7F3',
+                        softPink: '#FBCFE8',
+                        bronze: '#D97706',
+                        deepBronze: '#B45309',
+                        coral: '#FB7185',
+                        deepCoral: '#F43F5E',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        script: ['"Dancing Script"', 'cursive'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    },
+                    animation: {
+                        'spin-slow': 'spin 8s linear infinite',
+                        'wiggle-gift': 'wiggleGift 2.5s ease-in-out infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        wiggleGift: {
+                            '0%, 100%': { transform: 'rotate(0deg) scale(1)' },
+                            '15%': { transform: 'rotate(-4deg) scale(1.03)' },
+                            '30%': { transform: 'rotate(4deg) scale(1.03)' },
+                            '45%': { transform: 'rotate(-3deg) scale(1.02)' },
+                            '60%': { transform: 'rotate(3deg) scale(1.02)' },
+                            '75%': { transform: 'rotate(0deg) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(24px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Thiết lập cơ bản & thanh cuộn tinh tế */
+        body {
+            background-color: #FFFDF9;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(252, 231, 243, 0.7) 0px, transparent 50%),
+                radial-gradient(at 100% 20%, rgba(254, 243, 199, 0.6) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(251, 207, 232, 0.5) 0px, transparent 60%);
+            color: #4A3B32;
+            overflow-x: hidden;
+            user-select: none;
+        }
+
+        /* Hiệu ứng con trỏ gõ chữ */
+        .typewriter-cursor::after {
+            content: '|';
+            color: #D97706;
+            animation: blink 0.8s infinite;
+            margin-left: 2px;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Thiệp Glassmorphism & Viền vàng đồng sang trọng */
+        .luxury-card {
+            background: rgba(255, 253, 249, 0.82);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1.5px solid rgba(217, 119, 6, 0.35);
+            box-shadow: 
+                0 20px 45px -15px rgba(180, 83, 9, 0.12),
+                0 0 0 6px rgba(255, 255, 255, 0.5),
+                inset 0 0 30px rgba(252, 231, 243, 0.4);
+        }
+
+        /* Hiệu ứng Polaroid */
+        .polaroid-card {
+            background: #FFFFFF;
+            padding: 12px 12px 24px 12px;
+            box-shadow: 0 10px 25px -5px rgba(74, 59, 50, 0.12), 0 4px 10px -2px rgba(74, 59, 50, 0.06);
+            transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            border: 1px solid rgba(217, 119, 6, 0.12);
+        }
+        .polaroid-card:hover {
+            transform: rotate(0deg) translateY(-8px) scale(1.03) !important;
+            box-shadow: 0 22px 35px -10px rgba(217, 119, 6, 0.25);
+            z-index: 20;
+        }
+
+        /* Hiệu ứng Nắp Hộp Quà Mở */
+        .gift-lid-open {
+            animation: lidFlyOff 1.1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        @keyframes lidFlyOff {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            40% { transform: translateY(-60px) rotate(-12deg); opacity: 1; }
+            100% { transform: translateY(-160px) rotate(-25deg) scale(0.85); opacity: 0; }
+        }
+        .gift-box-fade {
+            animation: boxFadeOut 0.9s ease-out 0.4s forwards;
+        }
+        @keyframes boxFadeOut {
+            to { transform: scale(0.9) translateY(20px); opacity: 0; }
+        }
+
+        /* Hiệu ứng Phong Thư Lưu Bút */
+        .envelope-card {
+            background: linear-gradient(145deg, #ffffff 0%, #FFF7ED 100%);
+            border: 1px solid rgba(217, 119, 6, 0.28);
+            box-shadow: 0 8px 20px rgba(180, 83, 9, 0.08);
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .envelope-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FB7185, #D97706, #FB7185);
+        }
+        .envelope-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 18px 30px -8px rgba(244, 63, 94, 0.2);
+            border-color: #FB7185;
+        }
+
+        /* Hiệu ứng biểu tượng bung tỏa khi click chuột */
+        .click-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            font-size: 20px;
+            animation: floatAndFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes floatAndFade {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(0.5) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(1.3) rotate(var(--rot));
+            }
+        }
+
+        /* Nền giấy kẻ ngang nhẹ cho thư chi tiết */
+        .letter-paper {
+            background-color: #FFFDF9;
+            background-image: repeating-linear-gradient(transparent, transparent 31px, rgba(217, 119, 6, 0.14) 32px);
+            line-height: 32px;
+        }
+
+        /* Tùy chỉnh thanh cuộn */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFFDF9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FBCFE8;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FB7185;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-pastelPink selection:text-deepCoral relative min-h-screen">
+
+    <!-- Canvas Nền Động (Cánh hoa đào rơi & hạt bokeh lấp lánh) -->
+    <canvas id="bg-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+    <!-- Canvas Pháo Giấy (Confetti khi mở hộp quà) -->
+    <canvas id="confetti-canvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
+
+    <!-- Thẻ Audio Nhạc Nền -->
+    <audio id="bg-music" loop preload="auto"></audio>
+
+    <!-- Nút Điều Khiển Nhạc Nền (Floating Button) -->
+    <div class="fixed bottom-5 right-5 z-40 flex items-center gap-2.5">
+        <div id="music-tooltip" class="hidden sm:flex items-center bg-white/90 backdrop-blur-md text-xs font-medium text-deepBronze px-3 py-1.5 rounded-full shadow-md border border-bronze/20 transition-opacity duration-500">
+            <span>🎵 Người gieo mầm xanh</span>
+        </div>
+        <button id="music-toggle-btn" aria-label="Bật/Tắt nhạc nền" class="group relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-deepCoral to-bronze text-white shadow-lg shadow-coral/30 flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300 border-2 border-white">
+            <!-- Vòng sóng âm khi phát -->
+            <span id="music-ping" class="hidden absolute inset-0 rounded-full bg-coral opacity-40 animate-ping"></span>
+            <!-- Icon Đĩa Nhạc Xoay -->
+            <svg id="music-disc-icon" class="w-6 h-6 sm:w-7 sm:h-7 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"></path>
+            </svg>
+            <!-- Dấu gạch chéo khi tắt nhạc -->
+            <span id="music-mute-slash" class="absolute w-8 h-0.5 bg-white rotate-45 rounded-full transition-opacity duration-200"></span>
+        </button>
+    </div>
+
+    <!-- =====================================================================
+         PHẦN 1: HERO SECTION & LỜI CHÚC TẬP THỂ
+    ====================================================================== -->
+    <header id="hero-section" class="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-14 sm:py-20">
+        <!-- Huy hiệu nhỏ phía trên -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pastelPink/80 border border-coral/30 text-deepCoral text-xs sm:text-sm font-semibold tracking-wider uppercase mb-6 shadow-sm animate-fade-in-up">
+            <span>🌸</span>
+            <span>Kỷ Niệm Ngày Nhà Giáo Việt Nam</span>
+            <span>🌸</span>
+        </div>
+
+        <!-- Tiêu đề chính với hiệu ứng gõ chữ (Typewriter) -->
+        <div class="text-center max-w-4xl mx-auto mb-8 sm:mb-10 min-h-[110px] sm:min-h-[130px] flex flex-col justify-center">
+            <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-deepBronze leading-tight tracking-tight">
+                <span id="typewriter-line-1"></span>
+            </h1>
+            <p class="font-script text-3xl sm:text-5xl text-deepCoral mt-2 sm:mt-3">
+                <span id="typewriter-line-2"></span>
+            </p>
+        </div>
+
+        <!-- Khung Thiệp Lời Chúc Tập Thể (Glassmorphism + Viền Vàng Đồng) -->
+        <div class="luxury-card relative max-w-3xl w-full rounded-3xl p-6 sm:p-10 md:p-12 mx-auto transition-all duration-500 animate-fade-in-up" style="animation-delay: 0.3s;">
+            <!-- Hoa văn trang trí 4 góc -->
+            <svg class="absolute top-3 left-3 w-8 h-8 text-bronze/50" viewBox="0 0 40 40" fill="none">
+                <path d="M2 38V12C2 6.47715 6.47715 2 12 2H38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="10" cy="10" r="2.5" fill="currentColor"/>
+            </svg>
+            <svg class="absolute top-3 right-3 w-8 h-8 text-bronze/50 rotate-90" viewBox="0 0 40 40" fill="none">
+                <path d="M2 38V12C2 6.47715 6.47715 2 12 2H38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="10" cy="10" r="2.5" fill="currentColor"/>
+            </svg>
+            <svg class="absolute bottom-3 left-3 w-8 h-8 text-bronze/50 -rotate-90" viewBox="0 0 40 40" fill="none">
+                <path d="M2 38V12C2 6.47715 6.47715 2 12 2H38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="10" cy="10" r="2.5" fill="currentColor"/>
+            </svg>
+            <svg class="absolute bottom-3 right-3 w-8 h-8 text-bronze/50 rotate-180" viewBox="0 0 40 40" fill="none">
+                <path d="M2 38V12C2 6.47715 6.47715 2 12 2H38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="10" cy="10" r="2.5" fill="currentColor"/>
+            </svg>
+
+            <!-- Nội dung lời chúc tập thể (Render từ JS) -->
+            <div class="text-center space-y-4 sm:space-y-5">
+                <div class="inline-block text-3xl sm:text-4xl mb-1">💐</div>
+                <h2 id="class-wish-heading" class="font-serif text-xl sm:text-2xl md:text-3xl font-semibold text-deepBronze"></h2>
+                <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-bronze to-transparent mx-auto"></div>
+                <p id="class-wish-body" class="text-sm sm:text-base md:text-lg text-stone-700 leading-relaxed font-normal italic px-1 sm:px-4"></p>
+                <div class="pt-3">
+                    <p id="class-wish-signature" class="font-script text-2xl sm:text-3xl text-deepCoral font-bold"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nút điều hướng xuống Phần Hộp Quà -->
+        <div class="mt-10 sm:mt-12 text-center animate-fade-in-up" style="animation-delay: 0.6s;">
+            <a href="#gift-experience-section" id="scroll-to-gift-btn" class="group inline-flex items-center gap-3 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-deepCoral via-coral to-bronze text-white font-semibold text-sm sm:text-base shadow-xl shadow-coral/25 hover:shadow-2xl hover:shadow-coral/40 hover:-translate-y-1 transition-all duration-300">
+                <span>Khám phá món quà tri ân</span>
+                <svg class="w-5 h-5 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- =====================================================================
+         PHẦN 2 & 3: TRẢI NGHIỆM MỞ HỘP QUÀ KỶ NIỆM (INTERACTIVE FLOW)
+    ====================================================================== -->
+    <main id="gift-experience-section" class="relative z-10 min-h-screen py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto flex flex-col justify-center">
+        
+        <!-- BƯỚC 1: HỘP QUÀ TƯƠNG TÁC -->
+        <section id="step-1-giftbox" class="flex flex-col items-center justify-center text-center py-10 transition-all duration-700">
+            <span class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-bronze mb-2">Món quà bất ngờ từ chúng em</span>
+            <h2 class="font-serif text-2xl sm:text-4xl font-bold text-stone-800 mb-8 sm:mb-12">Dành Tặng Cô Liên Kính Yêu</h2>
+
+            <!-- Hộp quà SVG 3D tinh xảo -->
+            <div id="gift-box-trigger" role="button" tabindex="0" aria-label="Mở hộp quà kỷ niệm" class="group cursor-pointer relative mx-auto flex flex-col items-center justify-center p-6 sm:p-8 rounded-full focus:outline-none">
+                <!-- Hào quang tỏa sáng phía sau hộp quà -->
+                <div class="absolute inset-4 rounded-full bg-gradient-to-tr from-pastelPink via-amber-100 to-softPink blur-2xl opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"></div>
+                
+                <div id="gift-box-wrapper" class="relative animate-wiggle-gift">
+                    <svg class="w-52 h-52 sm:w-64 sm:h-64 drop-shadow-2xl overflow-visible" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Bóng đổ dưới đáy hộp -->
+                        <ellipse cx="120" cy="218" rx="75" ry="12" fill="rgba(180, 83, 9, 0.15)"/>
+                        
+                        <!-- Thân hộp quà -->
+                        <g id="gift-body">
+                            <rect x="45" y="95" width="150" height="115" rx="14" fill="url(#boxGrad)"/>
+                            <!-- Dải ruy băng dọc trên thân -->
+                            <rect x="106" y="95" width="28" height="115" fill="url(#ribbonGrad)"/>
+                            <!-- Viền bóng nổi khối -->
+                            <rect x="45" y="95" width="150" height="12" fill="rgba(0,0,0,0.08)"/>
+                        </g>
+
+                        <!-- Nắp hộp quà & Nơ (Sẽ bay lên khi click) -->
+                        <g id="gift-lid">
+                            <!-- Nơ bên trái -->
+                            <path d="M120 62C100 32 62 38 68 62C73 80 105 68 120 62Z" fill="url(#ribbonGrad)" stroke="#B45309" stroke-width="1.5"/>
+                            <!-- Nơ bên phải -->
+                            <path d="M120 62C140 32 178 38 172 62C167 80 135 68 120 62Z" fill="url(#ribbonGrad)" stroke="#B45309" stroke-width="1.5"/>
+                            <!-- Nút thắt nơ ở giữa -->
+                            <rect x="108" y="50" width="24" height="20" rx="6" fill="#F59E0B" stroke="#B45309" stroke-width="1.5"/>
+                            
+                            <!-- Phần nắp hộp -->
+                            <rect x="35" y="65" width="170" height="34" rx="10" fill="url(#lidGrad)"/>
+                            <!-- Dải ruy băng trên nắp -->
+                            <rect x="106" y="65" width="28" height="34" fill="url(#ribbonGrad)"/>
+                        </g>
+
+                        <!-- Các ngôi sao lấp lánh quanh hộp -->
+                        <path d="M28 50L31 57L38 60L31 63L28 70L25 63L18 60L25 57L28 50Z" fill="#F59E0B" class="animate-pulse"/>
+                        <path d="M210 40L212 45L217 47L212 49L210 54L208 49L203 47L208 45L210 40Z" fill="#FB7185" class="animate-pulse"/>
+                        <circle cx="205" cy="145" r="4" fill="#FBBF24" class="animate-ping"/>
+                        <circle cx="32" cy="135" r="3.5" fill="#F43F5E" class="animate-ping"/>
+
+                        <!-- Gradients -->
+                        <defs>
+                            <linearGradient id="boxGrad" x1="45" y1="95" x2="195" y2="210" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FB7185"/>
+                                <stop offset="1" stop-color="#E11D48"/>
+                            </linearGradient>
+                            <linearGradient id="lidGrad" x1="35" y1="65" x2="205" y2="99" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FDA4AF"/>
+                                <stop offset="1" stop-color="#F43F5E"/>
+                            </linearGradient>
+                            <linearGradient id="ribbonGrad" x1="106" y1="50" x2="134" y2="210" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FDE68A"/>
+                                <stop offset="0.5" stop-color="#F59E0B"/>
+                                <stop offset="1" stop-color="#D97706"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                <!-- Nhãn mời gọi -->
+                <div class="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/95 border border-bronze/40 shadow-lg text-deepBronze font-semibold text-sm sm:text-base group-hover:bg-bronze group-hover:text-white transition-colors duration-300">
+                    <span class="animate-bounce">🎁</span>
+                    <span>Chạm để mở món quà kỷ niệm dành tặng Cô Liên</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- BƯỚC 2: THƯ VIỆN ẢNH & VIDEO KỶ NIỆM (Ẩn ban đầu, hiện ra sau khi mở hộp quà) -->
+        <section id="step-2-memories" class="hidden opacity-0 transition-all duration-700">
+            <!-- Thanh điều hướng bước -->
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-bronze/20">
+                <div>
+                    <span class="inline-block px-3 py-1 rounded-full bg-pastelPink text-deepCoral text-xs font-bold uppercase tracking-wider mb-1">Ngăn Quà Thứ Nhất</span>
+                    <h2 class="font-serif text-2xl sm:text-4xl font-bold text-deepBronze">Kỷ Niệm Cô Trò Chúng Em</h2>
+                </div>
+                <p class="text-xs sm:text-sm text-stone-500 italic">Bấm vào từng bức ảnh hoặc video để phóng to xem rõ nét ✨</p>
+            </div>
+
+            <!-- Lưới ảnh Polaroid & Video -->
+            <div id="memories-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                <!-- Các thẻ Polaroid sẽ được render tự động từ mảng `memories` -->
+            </div>
+
+            <!-- Nút chuyển sang Bước 3: Ngăn bí mật cuối cùng -->
+            <div class="mt-14 sm:mt-16 text-center">
+                <div class="inline-block p-1.5 rounded-full bg-gradient-to-r from-pastelPink via-amber-200 to-pastelPink shadow-lg">
+                    <button id="to-step-3-btn" class="group flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-deepBronze to-bronze text-white font-bold text-sm sm:text-base shadow-md hover:from-deepCoral hover:to-coral transition-all duration-300">
+                        <span>💌 Mở tiếp ngăn bí mật cuối cùng</span>
+                        <span class="group-hover:translate-x-1.5 transition-transform">→</span>
+                    </button>
+                </div>
+                <p class="text-xs text-stone-500 mt-3">Vẫn còn những lá thư tay nhỏ nhắn đang chờ Cô phía sau...</p>
+            </div>
+        </section>
+
+        <!-- BƯỚC 3: GÓC TÂM TÌNH / LƯU BÚT HỌC TRÒ -->
+        <section id="step-3-wishes" class="hidden opacity-0 transition-all duration-700">
+            <!-- Header Bước 3 -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-4 border-b border-bronze/20">
+                <div>
+                    <span class="inline-block px-3 py-1 rounded-full bg-amber-100 text-deepBronze text-xs font-bold uppercase tracking-wider mb-1">Ngăn Bí Mật Cuối Cùng</span>
+                    <h2 class="font-serif text-2xl sm:text-4xl font-bold text-deepCoral">Góc Tâm Tình & Lưu Bút Học Trò</h2>
+                    <p class="text-sm text-stone-600 mt-1">Chạm vào từng phong thư để đọc những lời tri ân chân thành từ từng thành viên trong lớp gửi Cô Liên.</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-2.5 self-start md:self-auto">
+                    <button id="open-add-letter-btn" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-deepCoral to-bronze text-white text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                        <span>✍️ Thêm thư của bạn</span>
+                    </button>
+                    <button id="back-to-step-2-btn" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-bronze/30 text-deepBronze text-xs sm:text-sm font-medium hover:bg-pastelPink/50 transition-colors">
+                        <span>← Xem lại ảnh</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lưới Phong Thư của Học Sinh -->
+            <div id="wishes-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Các phong thư sẽ được render tự động từ mảng `wishes` -->
+            </div>
+
+            <!-- Lời kết chân trang ấm áp -->
+            <div class="mt-16 text-center luxury-card rounded-3xl p-8 max-w-2xl mx-auto">
+                <p class="font-script text-3xl sm:text-4xl text-deepCoral mb-2">Kính chúc Cô Liên luôn mạnh khỏe, hạnh phúc và mãi giữ ngọn lửa nhiệt huyết!</p>
+                <p class="text-xs sm:text-sm text-stone-500">Mãi yêu Cô — Tập thể học trò của Cô Liên ❤️ 20/11</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =====================================================================
+         MODAL 1: LIGHTBOX PHÓNG TO ẢNH & VIDEO KỶ NIỆM
+    ====================================================================== -->
+    <div id="media-lightbox" class="fixed inset-0 z-50 hidden bg-stone-950/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 transition-opacity duration-300">
+        <!-- Nút Đóng -->
+        <button id="lightbox-close" aria-label="Đóng xem ảnh" class="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+
+        <!-- Nút Prev -->
+        <button id="lightbox-prev" aria-label="Ảnh trước" class="absolute left-2 sm:left-6 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+
+        <!-- Khung Nội Dung Ảnh / Video -->
+        <div class="max-w-4xl w-full flex flex-col items-center">
+            <div id="lightbox-media-container" class="w-full max-h-[68vh] flex items-center justify-center rounded-2xl overflow-hidden bg-black/40 shadow-2xl border border-white/15">
+                <!-- Ảnh hoặc Video được chèn vào đây -->
+            </div>
+            <div class="mt-4 text-center max-w-2xl px-4">
+                <div class="flex items-center justify-center gap-2 text-amber-300 text-xs sm:text-sm font-medium mb-1">
+                    <span id="lightbox-date"></span>
+                    <span>•</span>
+                    <span id="lightbox-counter"></span>
+                </div>
+                <h3 id="lightbox-title" class="font-serif text-lg sm:text-2xl font-bold text-white"></h3>
+                <p id="lightbox-desc" class="text-stone-300 text-xs sm:text-sm mt-1.5 leading-relaxed"></p>
+            </div>
+        </div>
+
+        <!-- Nút Next -->
+        <button id="lightbox-next" aria-label="Ảnh tiếp theo" class="absolute right-2 sm:right-6 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+    </div>
+
+<!-- =====================================================================
+         MODAL THÊM THƯ MỚI TỪ HỌC SINH
+    ====================================================================== -->
+    <div id="add-letter-modal" class="fixed inset-0 z-50 hidden bg-stone-900/75 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300">
+        <div id="add-letter-card" class="relative w-full max-w-lg rounded-3xl bg-cream border-2 border-bronze/40 shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300">
+            <!-- Header Modal -->
+            <div class="bg-gradient-to-r from-pastelPink via-amber-100 to-pastelPink px-6 py-4 flex items-center justify-between border-b border-bronze/20">
+                <div class="flex items-center gap-2.5">
+                    <span class="text-2xl">✍️</span>
+                    <div>
+                        <p class="text-[11px] uppercase tracking-wider text-deepBronze font-semibold">Gửi lời tri ân</p>
+                        <h3 class="font-serif text-lg font-bold text-stone-800">Viết Thư Gửi Cô Liên</h3>
+                    </div>
+                </div>
+                <button id="add-letter-close" aria-label="Đóng khung viết thư" class="w-9 h-9 rounded-full bg-white/80 hover:bg-coral hover:text-white text-stone-600 flex items-center justify-center transition-colors">
+                    ✕
+                </button>
+            </div>
+
+            <!-- Form nhập thư -->
+            <form id="add-letter-form" class="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-deepBronze mb-1.5">Chọn biểu tượng phong thư</label>
+                    <div id="icon-selector" class="grid grid-cols-6 sm:grid-cols-8 gap-2 max-h-36 overflow-y-auto p-1">
+                        <!-- Nhóm Hoa & Thiên nhiên -->
+                        <button type="button" data-icon="🌸" class="icon-option w-10 h-10 rounded-full bg-pastelPink border-2 border-deepCoral text-xl flex items-center justify-center transition-transform scale-110">🌸</button>
+                        <button type="button" data-icon="🌻" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">🌻</button>
+                        <button type="button" data-icon="🌷" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">🌷</button>
+                        <button type="button" data-icon="🌹" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">🌹</button>
+                        <button type="button" data-icon="💐" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">💐</button>
+                        <button type="button" data-icon="🌺" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">🌺</button>
+                        <button type="button" data-icon="🍀" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">🍀</button>
+                        <button type="button" data-icon="🌿" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">🌿</button>
+
+                        <!-- Nhóm Trái tim & Lấp lánh -->
+                        <button type="button" data-icon="💖" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">💖</button>
+                        <button type="button" data-icon="❤️" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">❤️</button>
+                        <button type="button" data-icon="💝" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">💝</button>
+                        <button type="button" data-icon="🧡" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">🧡</button>
+                        <button type="button" data-icon="✨" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">✨</button>
+                        <button type="button" data-icon="🌟" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">🌟</button>
+                        <button type="button" data-icon="🌈" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">🌈</button>
+                        <button type="button" data-icon="☀️" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">☀️</button>
+
+                        <!-- Nhóm Học đường 20/11 & Dễ thương -->
+                        <button type="button" data-icon="📚" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">📚</button>
+                        <button type="button" data-icon="🎓" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">🎓</button>
+                        <button type="button" data-icon="🌍" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">🌍</button>
+                        <button type="button" data-icon="✉️" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">✉️</button>
+                        <button type="button" data-icon="🦋" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">🦋</button>
+                        <button type="button" data-icon="🕊️" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">🕊️</button>
+                        <button type="button" data-icon="🧸" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">🧸</button>
+                        <button type="button" data-icon="🎀" class="icon-option w-10 h-10 rounded-full bg-white border border-bronze/25 text-xl flex items-center justify-center hover:scale-105 transition-transform">🎀</button>
+                    </div>
+                    <input type="hidden" id="new-letter-icon" value="🌸">
+                </div>
+
+                <div>
+                    <label for="new-letter-name" class="block text-xs font-semibold uppercase tracking-wider text-deepBronze mb-1.5">Tên của bạn *</label>
+                    <input type="text" id="new-letter-name" required maxlength="60" placeholder="Ví dụ: Nguyễn Văn An" class="w-full px-4 py-2.5 rounded-xl bg-white border border-bronze/30 text-sm text-stone-800 focus:outline-none focus:border-deepCoral focus:ring-2 focus:ring-pastelPink">
+                </div>
+
+                <div>
+                    <label for="new-letter-message" class="block text-xs font-semibold uppercase tracking-wider text-deepBronze mb-1.5">Lời nhắn gửi Cô Liên *</label>
+                    <textarea id="new-letter-message" rows="5" required maxlength="2000" placeholder="Viết những lời chúc và kỷ niệm chân thành của bạn dành tặng Cô..." class="w-full px-4 py-3 rounded-xl bg-white border border-bronze/30 text-sm text-stone-800 leading-relaxed focus:outline-none focus:border-deepCoral focus:ring-2 focus:ring-pastelPink"></textarea>
+                </div>
+
+                <div class="pt-2 flex flex-col sm:flex-row gap-2.5">
+                    <button type="submit" id="submit-letter-btn" class="flex-1 disabled:opacity-60 disabled:cursor-not-allowed py-3 px-5 rounded-xl bg-gradient-to-r from-deepCoral to-bronze text-white font-semibold text-sm shadow-md hover:opacity-95 transition-opacity">
+                        💌 Gửi lên bảng lưu bút
+                    </button>
+                    
+                </div>
+                <p id="add-letter-status" role="alert" class="hidden text-xs sm:text-sm text-center text-red-600 bg-red-50 border border-red-200 rounded-xl px-3 py-2"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL 2: MỞ ĐỌC LÁ THƯ TAY CỦA TỪNG HỌC SINH
+    ====================================================================== -->
+    <div id="letter-modal" class="fixed inset-0 z-50 hidden bg-stone-900/75 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300">
+        <div id="letter-modal-card" class="relative w-full max-w-lg rounded-3xl bg-cream border-2 border-bronze/40 shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300">
+            <!-- Dải trang trí đầu thư -->
+            <div class="bg-gradient-to-r from-pastelPink via-amber-100 to-pastelPink px-6 py-4 flex items-center justify-between border-b border-bronze/20">
+                <div class="flex items-center gap-2.5">
+                    <span id="modal-student-icon" class="text-2xl">🌸</span>
+                    <div>
+                        <p class="text-[11px] uppercase tracking-wider text-deepBronze font-semibold">Thư gửi Cô Liên</p>
+                        <h3 id="modal-student-name" class="font-serif text-lg font-bold text-stone-800"></h3>
+                    </div>
+                </div>
+                <button id="letter-modal-close" aria-label="Đóng thư" class="w-9 h-9 rounded-full bg-white/80 hover:bg-coral hover:text-white text-stone-600 flex items-center justify-center transition-colors">
+                    ✕
+                </button>
+            </div>
+
+            <!-- Nội dung lá thư trên nền giấy kẻ ngang -->
+            <div class="p-6 sm:p-8 letter-paper max-h-[65vh] overflow-y-auto">
+                <p class="font-script text-2xl text-deepCoral mb-2">Cô Liên kính mến,</p>
+                <p id="modal-student-message" class="text-stone-700 text-sm sm:text-base font-normal whitespace-pre-line"></p>
+                <div class="mt-6 text-right">
+                    <p class="text-xs text-stone-500 italic">Học trò của Cô,</p>
+                    <p id="modal-student-sign" class="font-script text-2xl text-deepBronze font-bold mt-0.5"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         JAVASCRIPT: CẤU HÌNH DỮ LIỆU MẪU & LOGIC TƯƠNG TÁC
+    ====================================================================== -->
+    <script>
+        /**
+         * =====================================================================
+         * KHU VỰC CẤU HÌNH & DỮ LIỆU MẪU (DỄ DÀNG THAY THẾ TẠI ĐÂY)
+         * =====================================================================
+         */
+
+        // 1. Link file nhạc nền (.mp3). 
+        // Bạn có thể thay bằng link file MP3 bài "Bài ca người giáo viên nhân dân" (ví dụ: "./bai-ca-nguoi-giao-vien-nhan-dan.mp3")
+        const MUSIC_URL = "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3";
+
+        // 2. Thông tin Lời chúc chung của tập thể lớp ở Phần Mở Đầu
+        const CLASS_WISH = {
+            titleLine1: "Chúc mừng ngày 20/11",
+            titleLine2: "Ngày Nhà giáo Việt Nam - Tri Ân Cô Liên",
+            heading: "Kính gửi Cô Liên — Người lái đò tận tụy của chúng em",
+            body: "Nhân ngày Nhà giáo Việt Nam 20/11, tập thể lớp chúng em xin gửi đến Cô những đóa hoa tươi thắm nhất cùng lòng biết ơn sâu sắc. Cảm ơn Cô vì đã luôn kiên nhẫn, bao dung, thắp sáng ngọn lửa tri thức và sưởi ấm trái tim chúng em bằng tình yêu thương dịu dàng mỗi ngày đến lớp. Kính chúc Cô luôn dồi dào sức khỏe, bình an, hạnh phúc và mãi giữ nụ cười rạng rỡ trên bục giảng!",
+            signature: "Tập thể học sinh lớp 10 Địa yêu quý của Cô ❤️"
+        };
+        
+	// 3. Danh sách Ảnh & Video Kỷ Niệm
+        const memories = [
+            {
+                type: "video",
+                src: "https://files.catbox.moe/x5p014.mp4",
+                poster: "https://files.catbox.moe/sznirl.png",
+                title: "Buổi học cùng cô trong buổi chiều mưa",
+                date: "",
+                description: ""
+            },
+            {
+                type: "video",
+                src: "https://files.catbox.moe/6hzb5s.mp4",
+                poster: "https://files.catbox.moe/q2rwxs.png",
+                title: "Những buổi học đầu tiên cùng cô (1)",
+                date: "",
+                description: ""
+            },
+            {
+                type: "video",
+                src: "https://files.catbox.moe/y7ziur.mp4",
+                poster: "https://files.catbox.moe/4khdtr.png",
+                title: "Những buổi học đầu tiên cùng cô (2)",
+                date: "",
+                description: ""
+            },
+            {
+                type: "video",
+                src: "https://files.catbox.moe/p0kqso.mp4",
+                title: "Những buổi học đầu tiên cùng cô (3)",
+                poster: "https://files.catbox.moe/9q47vz.png",
+                date: "",
+                description: ""
+            },
+            {
+                type: "image",
+                src: "https://files.catbox.moe/rcba37.png",
+                title: "Bức ảnh của lớp và cô vào 20/10",
+                date: "",
+                description: ""
+            }
+        ];
+
+        // 4. Danh sách Lời Nhắn / Lưu Bút từ từng học sinh
+        const wishes = [];
+        let wishesLoading = true;   // đang tải thư từ đám mây
+        let wishesError = "";       // thông báo lỗi tải thư (nếu có)
+
+        // Chống chèn mã độc: thư là dữ liệu công khai nên phải "làm sạch" trước khi hiển thị
+        function escapeHtml(v) {
+            return String(v == null ? "" : v).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+        }
+
+        // Firebase (đoạn module ở cuối file) gọi 2 hàm này để cập nhật giao diện
+        window.setWishesData = function(list) {
+            wishes.length = 0;
+            wishes.push(...list);
+            wishesLoading = false;
+            wishesError = "";
+            renderWishesGrid();
+        };
+        window.setWishesError = function(msg) {
+            wishesLoading = false;
+            wishesError = msg;
+            renderWishesGrid();
+        };
+
+        /**
+         * =====================================================================
+         * LOGIC KHỞI TẠO & TƯƠNG TÁC TRANG WEB
+         * =====================================================================
+         */
+        document.addEventListener("DOMContentLoaded", () => {
+            initMusicController();
+            initClickBurstEffect();
+            initBackgroundParticles();
+            initHeroContent();
+            initGiftBoxExperience();
+            renderMemoriesGrid();
+            renderWishesGrid();
+            initModals();
+            initAddLetterFeature();
+        });
+
+        /* ---------------------------------------------------------------------
+           1. ĐIỀU KHIỂN NHẠC NỀN (Tự phát nhẹ nhàng sau tương tác đầu tiên)
+        --------------------------------------------------------------------- */
+        function initMusicController() {
+            const audio = document.getElementById("bg-music");
+            const toggleBtn = document.getElementById("music-toggle-btn");
+            const discIcon = document.getElementById("music-disc-icon");
+            const muteSlash = document.getElementById("music-mute-slash");
+            const pingEffect = document.getElementById("music-ping");
+            const tooltip = document.getElementById("music-tooltip");
+
+            audio.src = MUSIC_URL;
+            audio.volume = 0.45; // Âm lượng dịu nhẹ
+
+            let isPlaying = false;
+            let userManuallyPaused = false;
+
+            function updateMusicUI(playing) {
+                isPlaying = playing;
+                if (playing) {
+                    discIcon.classList.add("animate-spin-slow");
+                    muteSlash.classList.add("opacity-0");
+                    pingEffect.classList.remove("hidden");
+                } else {
+                    discIcon.classList.remove("animate-spin-slow");
+                    muteSlash.classList.remove("opacity-0");
+                    pingEffect.classList.add("hidden");
+                }
+            }
+
+            function playMusic() {
+                audio.play().then(() => {
+                    updateMusicUI(true);
+                }).catch(() => {
+                    // Trình duyệt chặn autoplay trước khi có tương tác
+                    updateMusicUI(false);
+                });
+            }
+
+            // Bật/tắt chủ động khi bấm nút loa
+            toggleBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (isPlaying) {
+                    audio.pause();
+                    userManuallyPaused = true;
+                    updateMusicUI(false);
+                } else {
+                    userManuallyPaused = false;
+                    playMusic();
+                }
+            });
+
+            // Tự động phát nhẹ nhàng ở lần click/chạm đầu tiên trên trang
+            const unlockAudioOnFirstInteraction = () => {
+                if (!isPlaying && !userManuallyPaused) {
+                    playMusic();
+                }
+                document.removeEventListener("click", unlockAudioOnFirstInteraction);
+                document.removeEventListener("touchstart", unlockAudioOnFirstInteraction);
+            };
+            document.addEventListener("click", unlockAudioOnFirstInteraction);
+            document.addEventListener("touchstart", unlockAudioOnFirstInteraction);
+
+            // Tự ẩn tooltip tên bài hát sau 7 giây cho gọn màn hình
+            setTimeout(() => {
+                if (tooltip) tooltip.classList.add("opacity-0");
+            }, 7000);
+        }
+
+        /* ---------------------------------------------------------------------
+           2. HIỆU ỨNG BUNG TỎA BIỂU TƯỢNG KHI CLICK CHUỘT / CHẠM MÀN HÌNH
+        --------------------------------------------------------------------- */
+        function initClickBurstEffect() {
+            const symbols = ["💖", "❤️", "🌻", "🌸", "✨", "🌷", "💕"];
+
+            document.addEventListener("click", (e) => {
+                const count = 6; // Số lượng biểu tượng bung ra mỗi lần click
+                for (let i = 0; i < count; i++) {
+                    const span = document.createElement("span");
+                    span.className = "click-particle";
+                    span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+                    // Quỹ đạo bay ngẫu nhiên hướng lên trên
+                    const angle = -Math.PI / 2 + (Math.random() - 0.5) * 1.8;
+                    const distance = 45 + Math.random() * 65;
+                    const tx = Math.cos(angle) * distance + "px";
+                    const ty = Math.sin(angle) * distance - 20 + "px";
+                    const rot = (Math.random() - 0.5) * 90 + "deg";
+
+                    span.style.left = `${e.clientX - 10}px`;
+                    span.style.top = `${e.clientY - 10}px`;
+                    span.style.setProperty("--tx", tx);
+                    span.style.setProperty("--ty", ty);
+                    span.style.setProperty("--rot", rot);
+                    span.style.fontSize = `${14 + Math.random() * 10}px`;
+
+                    document.body.appendChild(span);
+
+                    setTimeout(() => {
+                        span.remove();
+                    }, 1200);
+                }
+            });
+        }
+
+        /* ---------------------------------------------------------------------
+           3. NỀN ĐỘNG CANVAS: CÁNH HOA ĐÀO RƠI & HẠT BOKEH LẤP LÁNH
+        --------------------------------------------------------------------- */
+        function initBackgroundParticles() {
+            const canvas = document.getElementById("bg-canvas");
+            const ctx = canvas.getContext("2d");
+            let width, height;
+
+            function resizeCanvas() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            window.addEventListener("resize", resizeCanvas);
+            resizeCanvas();
+
+            const particles = [];
+            const particleCount = window.innerWidth < 640 ? 22 : 38;
+
+            for (let i = 0; i < particleCount; i++) {
+                const isPetal = i % 2 === 0;
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    size: isPetal ? (6 + Math.random() * 6) : (3 + Math.random() * 8),
+                    speedY: isPetal ? (0.4 + Math.random() * 0.8) : (-0.2 - Math.random() * 0.4),
+                    speedX: (Math.random() - 0.5) * 0.6,
+                    angle: Math.random() * Math.PI * 2,
+                    spin: (Math.random() - 0.5) * 0.02,
+                    isPetal: isPetal,
+                    opacity: 0.25 + Math.random() * 0.45,
+                    color: isPetal 
+                        ? (Math.random() > 0.5 ? "#FBCFE8" : "#FDA4AF") 
+                        : (Math.random() > 0.5 ? "#FDE68A" : "#FBCFE8")
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+
+                particles.forEach(p => {
+                    p.x += p.speedX + Math.sin(p.angle) * 0.3;
+                    p.y += p.speedY;
+                    p.angle += p.spin;
+
+                    // Tái tạo khi ra khỏi màn hình
+                    if (p.isPetal && p.y > height + 20) {
+                        p.y = -15;
+                        p.x = Math.random() * width;
+                    } else if (!p.isPetal && p.y < -20) {
+                        p.y = height + 15;
+                        p.x = Math.random() * width;
+                    }
+                    if (p.x > width + 20) p.x = -15;
+                    if (p.x < -20) p.x = width + 15;
+
+                    ctx.save();
+                    ctx.globalAlpha = p.opacity;
+                    ctx.translate(p.x, p.y);
+
+                    if (p.isPetal) {
+                        // Vẽ cánh hoa mềm mại
+                        ctx.rotate(p.angle);
+                        ctx.fillStyle = p.color;
+                        ctx.beginPath();
+                        ctx.moveTo(0, 0);
+                        ctx.bezierCurveTo(p.size, -p.size, p.size * 1.5, p.size * 0.5, 0, p.size * 1.4);
+                        ctx.bezierCurveTo(-p.size * 1.5, p.size * 0.5, -p.size, -p.size, 0, 0);
+                        ctx.fill();
+                    } else {
+                        // Vẽ hạt bokeh phát sáng dịu
+                        const grad = ctx.createRadialGradient(0, 0, 0, 0, 0, p.size * 1.5);
+                        grad.addColorStop(0, p.color);
+                        grad.addColorStop(1, "rgba(255,255,255,0)");
+                        ctx.fillStyle = grad;
+                        ctx.beginPath();
+                        ctx.arc(0, 0, p.size * 1.5, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    ctx.restore();
+                });
+
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        /* ---------------------------------------------------------------------
+           4. HIỆU ỨNG GÕ CHỮ (TYPEWRITER) & NỘI DUNG PHẦN MỞ ĐẦU
+        --------------------------------------------------------------------- */
+        function initHeroContent() {
+            document.getElementById("class-wish-heading").textContent = CLASS_WISH.heading;
+            document.getElementById("class-wish-body").textContent = `"${CLASS_WISH.body}"`;
+            document.getElementById("class-wish-signature").textContent = CLASS_WISH.signature;
+
+            const line1El = document.getElementById("typewriter-line-1");
+            const line2El = document.getElementById("typewriter-line-2");
+            const text1 = CLASS_WISH.titleLine1;
+            const text2 = CLASS_WISH.titleLine2;
+
+            let idx1 = 0;
+            let idx2 = 0;
+            line1El.classList.add("typewriter-cursor");
+
+            function typeLine1() {
+                if (idx1 < text1.length) {
+                    line1El.textContent += text1.charAt(idx1);
+                    idx1++;
+                    setTimeout(typeLine1, 55);
+                } else {
+                    line1El.classList.remove("typewriter-cursor");
+                    line2El.classList.add("typewriter-cursor");
+                    setTimeout(typeLine2, 200);
+                }
+            }
+
+            function typeLine2() {
+                if (idx2 < text2.length) {
+                    line2El.textContent += text2.charAt(idx2);
+                    idx2++;
+                    setTimeout(typeLine2, 45);
+                } else {
+                    setTimeout(() => {
+                        line2El.classList.remove("typewriter-cursor");
+                    }, 1500);
+                }
+            }
+
+            setTimeout(typeLine1, 300);
+        }
+
+        /* ---------------------------------------------------------------------
+           5. TRẢI NGHIỆM MỞ HỘP QUÀ & BẮN PHÁO GIẤY (CONFETTI)
+        --------------------------------------------------------------------- */
+        function initGiftBoxExperience() {
+            const trigger = document.getElementById("gift-box-trigger");
+            const wrapper = document.getElementById("gift-box-wrapper");
+            const lid = document.getElementById("gift-lid");
+            const step1 = document.getElementById("step-1-giftbox");
+            const step2 = document.getElementById("step-2-memories");
+            const step3 = document.getElementById("step-3-wishes");
+            const toStep3Btn = document.getElementById("to-step-3-btn");
+            const backToStep2Btn = document.getElementById("back-to-step-2-btn");
+
+            let isOpened = false;
+
+            function openGiftBox() {
+                if (isOpened) return;
+                isOpened = true;
+
+                // Dừng lắc, bật nắp hộp & bắn pháo giấy
+                wrapper.classList.remove("animate-wiggle-gift");
+                lid.classList.add("gift-lid-open");
+                wrapper.classList.add("gift-box-fade");
+                fireConfetti();
+
+                // Chuyển mượt từ Bước 1 sang Bước 2 (Thư viện Ảnh/Video)
+                setTimeout(() => {
+                    step1.classList.add("hidden");
+                    step2.classList.remove("hidden");
+                    // Kích hoạt reflow để transition hoạt động
+                    void step2.offsetWidth;
+                    step2.classList.remove("opacity-0");
+                    step2.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 950);
+            }
+
+            trigger.addEventListener("click", openGiftBox);
+            trigger.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    openGiftBox();
+                }
+            });
+
+            // Chuyển từ Bước 2 sang Bước 3 (Góc tâm tình)
+            toStep3Btn.addEventListener("click", () => {
+                fireConfetti(); // Bắn thêm chút pháo giấy chúc mừng
+                step2.classList.add("opacity-0");
+                setTimeout(() => {
+                    step2.classList.add("hidden");
+                    step3.classList.remove("hidden");
+                    void step3.offsetWidth;
+                    step3.classList.remove("opacity-0");
+                    document.getElementById("gift-experience-section").scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 400);
+            });
+
+            // Quay lại xem ảnh kỷ niệm từ Bước 3
+            backToStep2Btn.addEventListener("click", () => {
+                step3.classList.add("opacity-0");
+                setTimeout(() => {
+                    step3.classList.add("hidden");
+                    step2.classList.remove("hidden");
+                    void step2.offsetWidth;
+                    step2.classList.remove("opacity-0");
+                    document.getElementById("gift-experience-section").scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 400);
+            });
+        }
+
+        // Hiệu ứng Pháo Giấy Canvas tự code mượt mà
+        function fireConfetti() {
+            const canvas = document.getElementById("confetti-canvas");
+            const ctx = canvas.getContext("2d");
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const colors = ["#FB7185", "#F43F5E", "#F59E0B", "#FDE047", "#FBCFE8", "#34D399", "#60A5FA"];
+            const pieces = [];
+
+            for (let i = 0; i < 130; i++) {
+                pieces.push({
+                    x: canvas.width / 2,
+                    y: canvas.height / 2 + 40,
+                    w: 6 + Math.random() * 8,
+                    h: 4 + Math.random() * 6,
+                    vx: (Math.random() - 0.5) * 18,
+                    vy: -8 - Math.random() * 14,
+                    gravity: 0.35,
+                    drag: 0.97,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    rot: Math.random() * 360,
+                    rotSpeed: (Math.random() - 0.5) * 12
+                });
+            }
+
+            let frame = 0;
+            function renderConfetti() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                let active = false;
+
+                pieces.forEach(p => {
+                    p.vx *= p.drag;
+                    p.vy = p.vy * p.drag + p.gravity;
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.rot += p.rotSpeed;
+
+                    if (p.y < canvas.height + 30) active = true;
+
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate((p.rot * Math.PI) / 180);
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+                    ctx.restore();
+                });
+
+                frame++;
+                if (active && frame < 180) {
+                    requestAnimationFrame(renderConfetti);
+                } else {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+            renderConfetti();
+        }
+
+        /* ---------------------------------------------------------------------
+           6. RENDER LƯỚI POLAROID ẢNH & VIDEO KỶ NIỆM
+        --------------------------------------------------------------------- */
+        let currentLightboxIndex = 0;
+
+        function renderMemoriesGrid() {
+            const grid = document.getElementById("memories-grid");
+            const rotations = ["-2deg", "1.5deg", "-1.5deg", "2deg", "1deg", "-2.5deg", "2deg", "-1deg"];
+
+            grid.innerHTML = memories.map((item, index) => {
+                const rot = rotations[index % rotations.length];
+                const isVideo = item.type === "video";
+                const thumbSrc = isVideo ? (item.poster || "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80") : item.src;
+
+                return `
+                    <article 
+                        onclick="openLightbox(${index})"
+                        style="transform: rotate(${rot});"
+                        class="polaroid-card rounded-xl cursor-pointer flex flex-col justify-between group"
+                    >
+                        <div class="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-stone-100">
+                            <img 
+                                src="${thumbSrc}" 
+                                alt="${item.title}" 
+                                loading="lazy"
+                                onerror="this.src='https://placehold.co/600x450/FCE7F3/B45309?text=Ky+Niem+20-11'"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                            ${isVideo ? `
+                                <div class="absolute inset-0 bg-black/25 flex items-center justify-center group-hover:bg-black/35 transition-colors">
+                                    <div class="w-12 h-12 rounded-full bg-white/95 text-deepCoral flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </div>
+                                </div>
+                                <span class="absolute top-2 right-2 px-2 py-0.5 rounded bg-deepCoral text-white text-[10px] font-bold uppercase tracking-wider shadow">Video</span>
+                            ` : ""}
+                        </div>
+                        <div class="pt-3.5 px-1 text-center">
+                            <span class="text-[11px] font-semibold text-bronze tracking-wide uppercase">${item.date}</span>
+                            <h3 class="font-script text-xl sm:text-2xl text-stone-800 font-bold mt-0.5 line-clamp-1">${item.title}</h3>
+                        </div>
+                    </article>
+                `;
+            }).join("");
+        }
+
+        /* ---------------------------------------------------------------------
+           7. RENDER LƯỚI PHONG THƯ LƯU BÚT HỌC TRÒ
+        --------------------------------------------------------------------- */
+       function renderWishesGrid() {
+            const grid = document.getElementById("wishes-grid");
+
+            if (wishesLoading) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 px-6 rounded-3xl bg-white/70 border-2 border-dashed border-bronze/30">
+                    <div class="text-4xl mb-3 animate-pulse">💌</div>
+                    <p class="font-serif text-lg font-semibold text-deepBronze">Đang mở ngăn bí mật...</p></div>`;
+                return;
+            }
+            if (wishesError && wishes.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 px-6 rounded-3xl bg-white/70 border-2 border-dashed border-red-300">
+                    <div class="text-4xl mb-3">⚠️</div>
+                    <p class="font-serif text-lg font-semibold text-red-700">Chưa tải được các lá thư</p>
+                    <p class="text-xs sm:text-sm text-stone-600 mt-1">${escapeHtml(wishesError)}</p></div>`;
+                return;
+            }
+
+            if (wishes.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12 px-6 rounded-3xl bg-white/70 border-2 border-dashed border-bronze/30">
+                        <div class="text-4xl mb-3">💌</div>
+                        <p class="font-serif text-lg sm:text-xl font-semibold text-deepBronze">Chưa có lá thư nào trong ngăn bí mật này</p>
+                        <p class="text-xs sm:text-sm text-stone-500 mt-1 mb-5">Hãy là người đầu tiên gửi lời tri ân chân thành đến Cô Liên nhé!</p>
+                        <button onclick="document.getElementById('open-add-letter-btn').click()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-deepCoral to-bronze text-white text-xs sm:text-sm font-semibold shadow-md hover:opacity-95 transition-opacity">
+                            <span>✍️ Viết lá thư đầu tiên</span>
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = wishes.map((wish, index) => `
+                <div 
+                    onclick="openLetterModal(${index})"
+                    class="envelope-card rounded-2xl p-6 cursor-pointer flex flex-col justify-between group"
+                >
+                    <div>
+                        <div class="flex items-center justify-between mb-3 gap-2">
+                            <span class="w-10 h-10 rounded-full bg-pastelPink/80 flex items-center justify-center text-xl shadow-inner group-hover:scale-110 transition-transform shrink-0">
+                                ${escapeHtml(wish.icon)}
+                            </span>
+                            <div class="flex items-center gap-1.5">
+                                <span class="text-xs font-medium text-bronze/80 bg-amber-50 px-2.5 py-1 rounded-full border border-bronze/20">
+                                    ✉️ Mở thư
+                                </span>
+                                <button 
+                                    type="button"
+                                    onclick="deleteWish(event, ${index})"
+                                    title="Xóa thư này"
+                                    aria-label="Xóa thư của ${escapeHtml(wish.studentName)}"
+                                    class="w-7 h-7 rounded-full bg-white hover:bg-red-500 text-stone-400 hover:text-white border border-stone-200 hover:border-red-500 flex items-center justify-center text-xs transition-colors"
+                                >
+                                    🗑️
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="font-serif text-lg font-bold text-stone-800 group-hover:text-deepCoral transition-colors">
+                            ${escapeHtml(wish.studentName)}
+                        </h3>
+                        <p class="text-xs sm:text-sm text-stone-600 mt-2 line-clamp-2 italic">
+                            "${escapeHtml(wish.preview)}"
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-bronze/15 flex items-center justify-between text-xs font-semibold text-deepCoral">
+                        <span>Gửi Cô Liên kính yêu</span>
+                        <span class="group-hover:translate-x-1 transition-transform">Đọc trọn vẹn →</span>
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        /* ---------------------------------------------------------------------
+           8. QUẢN LÝ CÁC MODAL (LIGHTBOX ẢNH/VIDEO & MODAL ĐỌC THƯ)
+        --------------------------------------------------------------------- */
+        window.openLightbox = function(index) {
+            currentLightboxIndex = index;
+            updateLightboxContent();
+            const modal = document.getElementById("media-lightbox");
+            modal.classList.remove("hidden");
+            document.body.style.overflow = "hidden";
+        };
+
+        function updateLightboxContent() {
+            const item = memories[currentLightboxIndex];
+            const container = document.getElementById("lightbox-media-container");
+            const titleEl = document.getElementById("lightbox-title");
+            const descEl = document.getElementById("lightbox-desc");
+            const dateEl = document.getElementById("lightbox-date");
+            const counterEl = document.getElementById("lightbox-counter");
+
+            if (item.type === "video") {
+                container.innerHTML = `
+                    <video src="${item.src}" poster="${item.poster || ''}" controls autoplay playsinline class="max-h-[65vh] w-auto max-w-full rounded-xl outline-none">
+                        Trình duyệt của bạn không hỗ trợ phát video.
+                    </video>
+                `;
+            } else {
+                container.innerHTML = `
+                    <img src="${item.src}" alt="${item.title}" onerror="this.src='https://placehold.co/800x600/FCE7F3/B45309?text=Ky+Niem+20-11'" class="max-h-[65vh] w-auto max-w-full object-contain rounded-xl" />
+                `;
+            }
+
+            titleEl.textContent = item.title;
+            descEl.textContent = item.description;
+            dateEl.textContent = item.date;
+            counterEl.textContent = `${currentLightboxIndex + 1} / ${memories.length}`;
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById("media-lightbox");
+            const container = document.getElementById("lightbox-media-container");
+            modal.classList.add("hidden");
+            container.innerHTML = ""; // Dừng video nếu đang phát
+            document.body.style.overflow = "";
+        }
+
+        window.openLetterModal = function(index) {
+            const wish = wishes[index];
+            document.getElementById("modal-student-icon").textContent = wish.icon;
+            document.getElementById("modal-student-name").textContent = wish.studentName;
+            document.getElementById("modal-student-message").textContent = wish.message;
+            document.getElementById("modal-student-sign").textContent = wish.studentName;
+
+            const modal = document.getElementById("letter-modal");
+            const card = document.getElementById("letter-modal-card");
+            modal.classList.remove("hidden");
+            setTimeout(() => {
+                card.classList.remove("scale-95");
+                card.classList.add("scale-100");
+            }, 10);
+            document.body.style.overflow = "hidden";
+        };
+
+        function closeLetterModal() {
+            const modal = document.getElementById("letter-modal");
+            const card = document.getElementById("letter-modal-card");
+            card.classList.remove("scale-100");
+            card.classList.add("scale-95");
+            setTimeout(() => {
+                modal.classList.add("hidden");
+                document.body.style.overflow = "";
+            }, 200);
+        }
+
+        function initModals() {
+            // Lightbox controls
+            document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
+            document.getElementById("lightbox-prev").addEventListener("click", (e) => {
+                e.stopPropagation();
+                currentLightboxIndex = (currentLightboxIndex - 1 + memories.length) % memories.length;
+                updateLightboxContent();
+            });
+            document.getElementById("lightbox-next").addEventListener("click", (e) => {
+                e.stopPropagation();
+                currentLightboxIndex = (currentLightboxIndex + 1) % memories.length;
+                updateLightboxContent();
+            });
+            document.getElementById("media-lightbox").addEventListener("click", (e) => {
+                if (e.target.id === "media-lightbox") closeLightbox();
+            });
+
+            // Letter modal controls
+            document.getElementById("letter-modal-close").addEventListener("click", closeLetterModal);
+            document.getElementById("letter-modal").addEventListener("click", (e) => {
+                if (e.target.id === "letter-modal") closeLetterModal();
+            });
+
+            // Hỗ trợ phím Esc & phím mũi tên trái/phải
+            document.addEventListener("keydown", (e) => {
+                const lightboxOpen = !document.getElementById("media-lightbox").classList.contains("hidden");
+                const letterOpen = !document.getElementById("letter-modal").classList.contains("hidden");
+
+                if (e.key === "Escape") {
+                    if (lightboxOpen) closeLightbox();
+                    if (letterOpen) closeLetterModal();
+                } else if (lightboxOpen) {
+                    if (e.key === "ArrowLeft") {
+                        currentLightboxIndex = (currentLightboxIndex - 1 + memories.length) % memories.length;
+                        updateLightboxContent();
+                    } else if (e.key === "ArrowRight") {
+                        currentLightboxIndex = (currentLightboxIndex + 1) % memories.length;
+                        updateLightboxContent();
+                    }
+                }
+            });
+        }
+
+	window.deleteWish = async function(event, index) {
+            event.stopPropagation(); // Ngăn không cho mở popup đọc thư khi bấm nút xóa
+            const wish = wishes[index];
+            if (!wish) return;
+
+            const isConfirmed = confirm(`Bạn có chắc muốn xóa lá thư của "${wish.studentName}" không?`);
+            if (!isConfirmed) return;
+
+            try {
+                // Xóa trên đám mây -> mọi người đang mở web sẽ thấy thư biến mất ngay
+                await window.wishesBackend.remove(wish.id);
+            } catch (err) {
+                alert(window.describeWishError(err, "xóa"));
+            }
+        };
+
+	/* ---------------------------------------------------------------------
+           9. TÍNH NĂNG THÊM THƯ MỚI & XUẤT FILE HTML CẬP NHẬT
+        --------------------------------------------------------------------- */
+        function initAddLetterFeature() {
+            const openBtn = document.getElementById("open-add-letter-btn");
+            const modal = document.getElementById("add-letter-modal");
+            const card = document.getElementById("add-letter-card");
+            const closeBtn = document.getElementById("add-letter-close");
+            const form = document.getElementById("add-letter-form");
+            const iconInput = document.getElementById("new-letter-icon");
+            const iconButtons = document.querySelectorAll(".icon-option");
+            const submitBtn = document.getElementById("submit-letter-btn");
+            const statusEl = document.getElementById("add-letter-status");
+
+            if (!openBtn || !modal) return;
+
+            function openAddModal() {
+                modal.classList.remove("hidden");
+                setTimeout(() => {
+                    card.classList.remove("scale-95");
+                    card.classList.add("scale-100");
+                }, 10);
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeAddModal() {
+                card.classList.remove("scale-100");
+                card.classList.add("scale-95");
+                setTimeout(() => {
+                    modal.classList.add("hidden");
+                    document.body.style.overflow = "";
+                }, 200);
+            }
+
+            openBtn.addEventListener("click", openAddModal);
+            closeBtn.addEventListener("click", closeAddModal);
+            modal.addEventListener("click", (e) => {
+                if (e.target.id === "add-letter-modal") closeAddModal();
+            });
+
+            // Chọn biểu tượng icon
+            iconButtons.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    iconButtons.forEach(b => {
+                        b.classList.remove("bg-pastelPink", "border-2", "border-deepCoral", "scale-110");
+                        b.classList.add("bg-white", "border", "border-bronze/25");
+                    });
+                    btn.classList.remove("bg-white", "border", "border-bronze/25");
+                    btn.classList.add("bg-pastelPink", "border-2", "border-deepCoral", "scale-110");
+                    iconInput.value = btn.dataset.icon;
+                });
+            });
+
+            function showStatus(msg) {
+                statusEl.textContent = msg;
+                statusEl.classList.toggle("hidden", !msg);
+            }
+
+            // Xử lý khi bấm Gửi thư: lưu thẳng lên Firestore
+            let sending = false;
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                if (sending) return;
+                const name = document.getElementById("new-letter-name").value.trim();
+                const message = document.getElementById("new-letter-message").value.trim();
+                const icon = iconInput.value || "🌸";
+
+                if (!name || !message) return;
+
+                const preview = message.length > 68 ? message.slice(0, 68) + "..." : message;
+
+                sending = true;
+                showStatus("");
+                const oldLabel = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = "⏳ Đang gửi...";
+
+                try {
+                    await window.wishesBackend.add({ studentName: name, icon, preview, message });
+                    form.reset();
+                    closeAddModal();
+                    fireConfetti();
+                } catch (err) {
+                    console.error("Gửi thư thất bại:", err);
+                    showStatus(window.describeWishError(err, "gửi"));
+                } finally {
+                    sending = false;
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = oldLabel;
+                }
+            });
+        }
+
+    </script>
+
+    <!-- =====================================================================
+         FIREBASE FIRESTORE (Modular SDK v10 qua CDN) - LƯU THƯ TRỰC TUYẾN
+    ====================================================================== -->
+    <script type="module" onerror="window.setWishesError && window.setWishesError('Không tải được thư viện Firebase. Hãy kiểm tra kết nối mạng rồi tải lại trang.')">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import {
+            getFirestore, collection, doc, setDoc, deleteDoc,
+            onSnapshot, query, orderBy, serverTimestamp
+        } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+        // ▼▼▼ DÁN firebaseConfig CỦA BẠN VÀO ĐÂY (lấy ở Firebase Console) ▼▼▼
+        const firebaseConfig = {
+            apiKey: "AIzaSyCrgyMhrNYR7LrNc059zAKvWr-fLo70Gdc",
+            authDomain: "tri-an-co-lien.firebaseapp.com",
+            projectId: "tri-an-co-lien",
+            storageBucket: "tri-an-co-lien.firebasestorage.app",
+            messagingSenderId: "844748598637",
+            appId: "1:844748598637:web:36cad3c88286e55bd3be64"
+        };
+        // ▲▲▲ -------------------------------------------------------- ▲▲▲
+
+        // Biến lỗi kỹ thuật thành câu tiếng Việt dễ hiểu
+        window.describeWishError = function(err, action) {
+            const code = (err && (err.code || err.message)) || "";
+            if (String(code).includes("not-configured")) return "Trang web chưa được cấu hình Firebase (chưa dán firebaseConfig).";
+            if (String(code).includes("offline")) return "Không có kết nối mạng. Hãy kiểm tra Wi-Fi/4G rồi bấm thử lại — nội dung bạn viết vẫn còn nguyên.";
+            if (String(code).includes("timeout")) return "Mạng đang quá chậm nên chưa " + action + " được. Bạn bấm thử lại nhé — nội dung vẫn còn nguyên.";
+            if (String(code).includes("permission-denied")) return "Firebase từ chối quyền " + action + ". Cần kiểm tra lại Security Rules trong Firestore.";
+            return "Chưa " + action + " được (" + code + "). Bạn thử lại sau ít phút nhé.";
+        };
+
+        const ready = !Object.values(firebaseConfig).some(v => String(v).startsWith("DAN_"));
+
+        if (!ready) {
+            window.wishesBackend = {
+                add: async () => { throw new Error("not-configured"); },
+                remove: async () => { throw new Error("not-configured"); }
+            };
+            window.setWishesError("Trang web chưa được cấu hình Firebase (chưa dán firebaseConfig).");
+        } else {
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+            const wishesCol = collection(db, "wishes");
+
+            // Thêm hạn chờ để không bị treo mãi khi mất mạng
+            const withTimeout = (p, ms) => Promise.race([
+                p, new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ms))
+            ]);
+
+            // Giữ lại mã thư giữa các lần bấm "thử lại" để không bị gửi trùng
+            let pendingRef = null;
+
+            window.wishesBackend = {
+                async add(data) {
+                    if (!navigator.onLine) throw new Error("offline");
+                    if (!pendingRef) pendingRef = doc(wishesCol);
+                    await withTimeout(setDoc(pendingRef, {
+                        studentName: data.studentName,
+                        icon: data.icon,
+                        preview: data.preview,
+                        message: data.message,
+                        createdAt: serverTimestamp()
+                    }), 12000);
+                    pendingRef = null;
+                },
+                async remove(id) {
+                    if (!navigator.onLine) throw new Error("offline");
+                    await withTimeout(deleteDoc(doc(db, "wishes", id)), 12000);
+                }
+            };
+
+            // Lắng nghe THỜI GIAN THỰC: ai gửi/xóa thư, mọi người đều thấy ngay
+            onSnapshot(
+                query(wishesCol, orderBy("createdAt", "asc")),
+                (snap) => {
+                    window.setWishesData(snap.docs.map(d => ({ id: d.id, ...d.data({ serverTimestamps: "estimate" }) })));
+                },
+                (err) => {
+                    console.error("Lỗi đọc thư:", err);
+                    window.setWishesError(window.describeWishError(err, "tải thư"));
+                }
+            );
+        }
+    </script>
+</body>
+</html>
