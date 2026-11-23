@@ -1215,12 +1215,28 @@
             document.body.style.overflow = "";
         }
 
-        window.openLetterModal = function(index) {
-            const wish = wishes[index];
+        let currentLetterIndex = 0;
+
+        function updateLetterModalContent() {
+            if (wishes.length === 0) return;
+            const wish = wishes[currentLetterIndex];
             document.getElementById("modal-student-icon").textContent = wish.icon;
             document.getElementById("modal-student-name").textContent = wish.studentName;
             document.getElementById("modal-student-message").textContent = wish.message;
             document.getElementById("modal-student-sign").textContent = wish.studentName;
+            document.getElementById("modal-letter-counter").textContent = `${currentLetterIndex + 1} / ${wishes.length}`;
+
+            // Ẩn 2 nút mũi tên nếu danh sách chỉ có đúng 1 lá thư
+            const prevBtn = document.getElementById("letter-prev-btn");
+            const nextBtn = document.getElementById("letter-next-btn");
+            const hideNav = wishes.length <= 1;
+            prevBtn.classList.toggle("hidden", hideNav);
+            nextBtn.classList.toggle("hidden", hideNav);
+        }
+
+        window.openLetterModal = function(index) {
+            currentLetterIndex = index;
+            updateLetterModalContent();
 
             const modal = document.getElementById("letter-modal");
             const card = document.getElementById("letter-modal-card");
@@ -1243,6 +1259,18 @@
             }, 200);
         }
 
+        function showPrevLetter() {
+            if (wishes.length <= 1) return;
+            currentLetterIndex = (currentLetterIndex - 1 + wishes.length) % wishes.length;
+            updateLetterModalContent();
+        }
+
+        function showNextLetter() {
+            if (wishes.length <= 1) return;
+            currentLetterIndex = (currentLetterIndex + 1) % wishes.length;
+            updateLetterModalContent();
+        }
+
         function initModals() {
             // Lightbox controls
             document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
@@ -1262,11 +1290,19 @@
 
             // Letter modal controls
             document.getElementById("letter-modal-close").addEventListener("click", closeLetterModal);
+            document.getElementById("letter-prev-btn").addEventListener("click", (e) => {
+                e.stopPropagation();
+                showPrevLetter();
+            });
+            document.getElementById("letter-next-btn").addEventListener("click", (e) => {
+                e.stopPropagation();
+                showNextLetter();
+            });
             document.getElementById("letter-modal").addEventListener("click", (e) => {
                 if (e.target.id === "letter-modal") closeLetterModal();
             });
 
-            // Hỗ trợ phím Esc & phím mũi tên trái/phải
+            // Hỗ trợ phím Esc & phím mũi tên trái/phải cho cả xem ảnh lẫn đọc thư
             document.addEventListener("keydown", (e) => {
                 const lightboxOpen = !document.getElementById("media-lightbox").classList.contains("hidden");
                 const letterOpen = !document.getElementById("letter-modal").classList.contains("hidden");
@@ -1281,6 +1317,12 @@
                     } else if (e.key === "ArrowRight") {
                         currentLightboxIndex = (currentLightboxIndex + 1) % memories.length;
                         updateLightboxContent();
+                    }
+                } else if (letterOpen) {
+                    if (e.key === "ArrowLeft") {
+                        showPrevLetter();
+                    } else if (e.key === "ArrowRight") {
+                        showNextLetter();
                     }
                 }
             });
