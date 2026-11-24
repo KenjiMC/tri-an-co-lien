@@ -468,8 +468,8 @@
                 <div class="flex items-center gap-2.5">
                     <span class="text-2xl">✍️</span>
                     <div>
-                        <p class="text-[11px] uppercase tracking-wider text-deepBronze font-semibold">Gửi lời tri ân</p>
-                        <h3 class="font-serif text-lg font-bold text-stone-800">Viết Thư Gửi Cô Liên</h3>
+                        <p id="add-letter-eyebrow" class="text-[11px] uppercase tracking-wider text-deepBronze font-semibold">Gửi lời tri ân</p>
+                        <h3 id="add-letter-title" class="font-serif text-lg font-bold text-stone-800">Viết Thư Gửi Cô Liên</h3>
                     </div>
                 </div>
                 <button id="add-letter-close" aria-label="Đóng khung viết thư" class="w-9 h-9 rounded-full bg-white/80 hover:bg-coral hover:text-white text-stone-600 flex items-center justify-center transition-colors">
@@ -1157,6 +1157,15 @@
                                 </span>
                                 <button 
                                     type="button"
+                                    onclick="editWish(event, ${index})"
+                                    title="Sửa thư này"
+                                    aria-label="Sửa lá thư này"
+                                    class="w-7 h-7 rounded-full bg-white hover:bg-amber-400 text-stone-400 hover:text-white border border-stone-200 hover:border-amber-400 flex items-center justify-center text-xs transition-colors"
+                                >
+                                    ✏️
+                                </button>
+                                <button 
+                                    type="button"
                                     onclick="deleteWish(event, ${index})"
                                     title="Xóa thư này"
                                     aria-label="Xóa lá thư này"
@@ -1365,7 +1374,13 @@
             });
         }
 
-	window.deleteWish = async function(event, index) {
+	window.editWish = function(event, index) {
+            event.stopPropagation(); // Không mở popup đọc thư khi bấm nút sửa
+            const wish = wishes[index];
+            if (wish && window.openEditLetter) window.openEditLetter(wish);
+        };
+
+        window.deleteWish = async function(event, index) {
             event.stopPropagation(); // Ngăn không cho mở popup đọc thư khi bấm nút xóa
             const wish = wishes[index];
             if (!wish) return;
@@ -1415,7 +1430,44 @@
                 }, 200);
             }
 
-            openBtn.addEventListener("click", openAddModal);
+            // ----- Chế độ THÊM mới / CHỈNH SỬA -----
+            let editingId = null;
+            const titleEl = document.getElementById("add-letter-title");
+            const eyebrowEl = document.getElementById("add-letter-eyebrow");
+            const SUBMIT_LABEL = submitBtn.innerHTML;
+
+            function selectIcon(ic) {
+                const b = Array.from(iconButtons).find(x => x.dataset.icon === ic) || iconButtons[0];
+                if (b) b.click();
+            }
+
+            function setMode(wish) {
+                showStatus("");
+                if (wish) {
+                    editingId = wish.id;
+                    document.getElementById("new-letter-name").value = wish.studentName || "";
+                    document.getElementById("new-letter-hint").value = wish.hint || "";
+                    document.getElementById("new-letter-message").value = wish.message || "";
+                    selectIcon(wish.icon);
+                    titleEl.textContent = "Chỉnh Sửa Lá Thư";
+                    eyebrowEl.textContent = "Sửa lời tri ân";
+                    submitBtn.innerHTML = "💾 Lưu thay đổi";
+                } else {
+                    editingId = null;
+                    form.reset();
+                    selectIcon("🌸");
+                    titleEl.textContent = "Viết Thư Gửi Cô Liên";
+                    eyebrowEl.textContent = "Gửi lời tri ân";
+                    submitBtn.innerHTML = SUBMIT_LABEL;
+                }
+            }
+
+            window.openEditLetter = function(wish) {
+                setMode(wish);
+                openAddModal();
+            };
+
+            openBtn.addEventListener("click", () => { setMode(null); openAddModal(); });
             closeBtn.addEventListener("click", closeAddModal);
             modal.addEventListener("click", (e) => {
                 if (e.target.id === "add-letter-modal") closeAddModal();
@@ -1460,8 +1512,12 @@
                 submitBtn.innerHTML = "⏳ Đang gửi...";
 
                 try {
-                    await window.wishesBackend.add({ studentName: name, icon, preview, message, hint });
-                    form.reset();
+                    if (editingId) {
+                        await window.wishesBackend.update(editingId, { studentName: name, icon, preview, message, hint });
+                    } else {
+                        await window.wishesBackend.add({ studentName: name, icon, preview, message, hint });
+                    }
+                    setMode(null);
                     closeAddModal();
                     fireConfetti();
                 } catch (err) {
@@ -1483,7 +1539,7 @@
     <script type="module" onerror="window.setWishesError && window.setWishesError('Không tải được thư viện Firebase. Hãy kiểm tra kết nối mạng rồi tải lại trang.')">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
         import {
-            getFirestore, collection, doc, setDoc, deleteDoc,
+            getFirestore, collection, doc, setDoc, updateDoc, deleteField, deleteDoc,
             onSnapshot, query, orderBy, serverTimestamp
         } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
@@ -1543,6 +1599,16 @@
                     if (data.hint) payload.hint = data.hint; // chỉ lưu khi có nhập gợi ý
                     await withTimeout(setDoc(pendingRef, payload), 12000);
                     pendingRef = null;
+                },
+                async update(id, data) {
+                    if (!navigator.onLine) throw new Error("offline");
+                    await withTimeout(updateDoc(doc(db, "wishes", id), {
+                        studentName: data.studentName,
+                        icon: data.icon,
+                        preview: data.preview,
+                        message: data.message,
+                        hint: data.hint ? data.hint : deleteField()  // để trống thì xóa gợi ý
+                    }), 12000);
                 },
                 async remove(id) {
                     if (!navigator.onLine) throw new Error("offline");
