@@ -521,6 +521,12 @@
                 </div>
 
                 <div>
+                    <label for="new-letter-hint" class="block text-xs font-semibold uppercase tracking-wider text-deepBronze mb-1.5">Gợi ý để Cô đoán bạn là ai <span class="normal-case font-normal text-stone-500">(không bắt buộc)</span></label>
+                    <input type="text" id="new-letter-hint" maxlength="150" placeholder="Ví dụ: Bạn ngồi bàn cuối, hay làm Cô bật cười..." class="w-full px-4 py-2.5 rounded-xl bg-white border border-bronze/30 text-sm text-stone-800 focus:outline-none focus:border-deepCoral focus:ring-2 focus:ring-pastelPink">
+                    <p class="text-[11px] text-stone-500 mt-1">Tên của bạn sẽ được che đi, Cô sẽ đoán trước rồi mới bấm để xem tên.</p>
+                </div>
+
+                <div>
                     <label for="new-letter-message" class="block text-xs font-semibold uppercase tracking-wider text-deepBronze mb-1.5">Lời nhắn gửi Cô Liên *</label>
                     <textarea id="new-letter-message" rows="5" required maxlength="2000" placeholder="Viết những lời chúc và kỷ niệm chân thành của bạn dành tặng Cô..." class="w-full px-4 py-3 rounded-xl bg-white border border-bronze/30 text-sm text-stone-800 leading-relaxed focus:outline-none focus:border-deepCoral focus:ring-2 focus:ring-pastelPink"></textarea>
                 </div>
@@ -555,7 +561,7 @@
                             <p class="text-[11px] uppercase tracking-wider text-deepBronze font-semibold">Thư gửi Cô Liên</p>
                             <span id="modal-letter-counter" class="text-[11px] font-bold text-deepCoral bg-white/80 px-2 py-0.5 rounded-full"></span>
                         </div>
-                        <h3 id="modal-student-name" class="font-serif text-lg font-bold text-stone-800"></h3>
+                        <h3 id="modal-student-name" role="button" tabindex="0" title="Bấm để xem tên" class="font-serif text-lg font-bold text-stone-800"></h3>
                     </div>
                 </div>
                 <button id="letter-modal-close" aria-label="Đóng thư" class="w-9 h-9 rounded-full bg-white/80 hover:bg-coral hover:text-white text-stone-600 flex items-center justify-center transition-colors">
@@ -567,6 +573,9 @@
             <div class="p-6 sm:p-8 letter-paper max-h-[65vh] overflow-y-auto">
                 <p class="font-script text-2xl text-deepCoral mb-2">Cô Liên kính mến,</p>
                 <p id="modal-student-message" class="text-stone-700 text-sm sm:text-base font-normal whitespace-pre-line"></p>
+                <div id="modal-hint-box" class="hidden mt-5 rounded-xl bg-amber-50/90 border border-bronze/25 px-4 py-2.5 text-xs sm:text-sm text-deepBronze">
+                    <span class="font-semibold">🕵️ Gợi ý:</span> <span id="modal-hint-text" class="italic"></span>
+                </div>
                 <div class="mt-6 text-right">
                     <p class="text-xs text-stone-500 italic">Học trò của Cô,</p>
                     <p id="modal-student-sign" class="font-script text-2xl text-deepBronze font-bold mt-0.5"></p>
@@ -648,6 +657,8 @@
 
         // 4. Danh sách Lời Nhắn / Lưu Bút từ từng học sinh
         const wishes = [];
+        // Đặt false nếu muốn hiện lại tên người gửi ngay trên các phong thư ở bảng lưu bút
+        const HIDE_SENDER_NAME = true;
         let wishesLoading = true;   // đang tải thư từ đám mây
         let wishesError = "";       // thông báo lỗi tải thư (nếu có)
 
@@ -1148,7 +1159,7 @@
                                     type="button"
                                     onclick="deleteWish(event, ${index})"
                                     title="Xóa thư này"
-                                    aria-label="Xóa thư của ${escapeHtml(wish.studentName)}"
+                                    aria-label="Xóa lá thư này"
                                     class="w-7 h-7 rounded-full bg-white hover:bg-red-500 text-stone-400 hover:text-white border border-stone-200 hover:border-red-500 flex items-center justify-center text-xs transition-colors"
                                 >
                                     🗑️
@@ -1156,7 +1167,7 @@
                             </div>
                         </div>
                         <h3 class="font-serif text-lg font-bold text-stone-800 group-hover:text-deepCoral transition-colors">
-                            ${escapeHtml(wish.studentName)}
+                            ${HIDE_SENDER_NAME ? "🎭 Một người bạn bí ẩn" : escapeHtml(wish.studentName)}
                         </h3>
                         <p class="text-xs sm:text-sm text-stone-600 mt-2 line-clamp-2 italic">
                             "${escapeHtml(wish.preview)}"
@@ -1221,9 +1232,35 @@
             if (wishes.length === 0) return;
             const wish = wishes[currentLetterIndex];
             document.getElementById("modal-student-icon").textContent = wish.icon;
-            document.getElementById("modal-student-name").textContent = wish.studentName;
             document.getElementById("modal-student-message").textContent = wish.message;
-            document.getElementById("modal-student-sign").textContent = wish.studentName;
+
+            // Che tên người gửi; bấm vào dòng tên (hoặc chữ ký) để hiện ra
+            const nameEl = document.getElementById("modal-student-name");
+            const signEl = document.getElementById("modal-student-sign");
+            const hintBox = document.getElementById("modal-hint-box");
+            const hint = (wish.hint || "").trim();
+            hintBox.classList.toggle("hidden", !hint);
+            document.getElementById("modal-hint-text").textContent = hint;
+
+            const reveal = () => {
+                nameEl.textContent = wish.studentName;
+                signEl.textContent = wish.studentName;
+                nameEl.classList.remove("cursor-pointer", "text-deepCoral", "animate-pulse");
+                signEl.classList.remove("cursor-pointer", "opacity-60");
+                nameEl.onclick = nameEl.onkeydown = signEl.onclick = null;
+                if (typeof fireConfetti === "function") fireConfetti();
+            };
+            if (HIDE_SENDER_NAME) {
+                nameEl.textContent = "🎭 Bạn bí ẩn — bấm để xem tên";
+                signEl.textContent = "? ? ?";
+                nameEl.classList.add("cursor-pointer", "text-deepCoral", "animate-pulse");
+                signEl.classList.add("cursor-pointer", "opacity-60");
+                nameEl.onclick = signEl.onclick = reveal;
+                nameEl.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); reveal(); } };
+            } else {
+                nameEl.textContent = wish.studentName;
+                signEl.textContent = wish.studentName;
+            }
             document.getElementById("modal-letter-counter").textContent = `${currentLetterIndex + 1} / ${wishes.length}`;
 
             // Ẩn 2 nút mũi tên nếu danh sách chỉ có đúng 1 lá thư
@@ -1333,7 +1370,7 @@
             const wish = wishes[index];
             if (!wish) return;
 
-            const isConfirmed = confirm(`Bạn có chắc muốn xóa lá thư của "${wish.studentName}" không?`);
+            const isConfirmed = confirm(`Bạn có chắc muốn xóa lá thư "${wish.preview}" không?`);
             if (!isConfirmed) return;
 
             try {
@@ -1409,6 +1446,7 @@
                 if (sending) return;
                 const name = document.getElementById("new-letter-name").value.trim();
                 const message = document.getElementById("new-letter-message").value.trim();
+                const hint = document.getElementById("new-letter-hint").value.trim();
                 const icon = iconInput.value || "🌸";
 
                 if (!name || !message) return;
@@ -1422,7 +1460,7 @@
                 submitBtn.innerHTML = "⏳ Đang gửi...";
 
                 try {
-                    await window.wishesBackend.add({ studentName: name, icon, preview, message });
+                    await window.wishesBackend.add({ studentName: name, icon, preview, message, hint });
                     form.reset();
                     closeAddModal();
                     fireConfetti();
@@ -1495,13 +1533,15 @@
                 async add(data) {
                     if (!navigator.onLine) throw new Error("offline");
                     if (!pendingRef) pendingRef = doc(wishesCol);
-                    await withTimeout(setDoc(pendingRef, {
+                    const payload = {
                         studentName: data.studentName,
                         icon: data.icon,
                         preview: data.preview,
                         message: data.message,
                         createdAt: serverTimestamp()
-                    }), 12000);
+                    };
+                    if (data.hint) payload.hint = data.hint; // chỉ lưu khi có nhập gợi ý
+                    await withTimeout(setDoc(pendingRef, payload), 12000);
                     pendingRef = null;
                 },
                 async remove(id) {
